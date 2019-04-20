@@ -1,0 +1,26 @@
+<h2>TRACK LOCALLY THE UPLOAD</h2>
+<div *ngFor="let upload of uploads">
+	<h3>Upload of {{upload.fileName}}</h3>
+	<p> Progress: {{upload.percentage | async}}</p>
+</div>
+
+<br>
+<br>
+<h2>OVERALL PERCENTAGE {{allPercentage | async}}</h2>
+<br>
+
+<input type="file" multiple=true (change)="importImages($event)">
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+<h2>FIRESTORE VALUES</h2>
+<div *ngFor="let file of files | async">
+	<h3>Upload of {{file.name}} DONE and saved in firestore</h3>
+	<p>url: {{file.url}} <img [src]="file.url" height="40" /></p>
+</div>
